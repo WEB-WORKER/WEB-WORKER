@@ -33,6 +33,8 @@
 			var r = document.getElementById('result');
 
 			function startConverting () {
+				console.log("+");
+				console.log("+");
 				if('webkitSpeechRecognition' in window){
 					var speechRecognizer = new webkitSpeechRecognition();
 					speechRecognizer.continuous = true;
@@ -43,8 +45,7 @@
 					var finalTranscripts = '';
 
 					speechRecognizer.onresult = function(event){
-						console.log("+");
-						console.log("+");
+						
 						var interimTranscripts = '';
 						for(var i = event.resultIndex; i < event.results.length; i++){
 							var transcript = event.results[i][0].transcript;
