@@ -43,6 +43,8 @@
 					var finalTranscripts = '';
 
 					speechRecognizer.onresult = function(event){
+						console.log(event.resultIndex);
+						console.log(event.results.length);
 						var interimTranscripts = '';
 						for(var i = event.resultIndex; i < event.results.length; i++){
 							var transcript = event.results[i][0].transcript;
@@ -62,7 +64,7 @@
 					r.innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
 				}
 			}
-
+                        
 			
 
 		</script>
