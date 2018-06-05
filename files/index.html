@@ -55,14 +55,14 @@
 							transcript.replace("\n", "<br>");
 							if(event.results[i].isFinal){
 								finalTranscripts += transcript;
-								res[i] = finalTranscripts;
+								res[i] = transcript;
 							}else{
 								interimTranscripts += transcript;
 							}
 						}
 // 						r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
 // 						r.innerHTML = interimTranscripts;
-// 						r.innerHTML = res[i];	
+						r.innerHTML = res[i];	
 						console.log(res[i]);
 					};
 					speechRecognizer.onerror = function (event) {						
