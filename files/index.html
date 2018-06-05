@@ -51,8 +51,7 @@
 						
 						var interimTranscripts = '';
 						for(var i = event.resultIndex; i < event.results.length; i++){
-							console.log(event.resultIndex);
-							console.log(event.results.length);
+							console.log(event.resultIndex);							
 							var transcript = event.results[i][0].transcript;
 							transcript.replace("\n", "<br>");
 							if(event.results[i].isFinal){
