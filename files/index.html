@@ -49,6 +49,7 @@
 					
 					speechRecognizer.onresult = function(event){
 						console.log(resultIndex);
+						console.log(results.length);
 						var interimTranscripts = '';
 						for(var i = event.resultIndex; i < event.results.length; i++){
 							var transcript = event.results[i][0].transcript;
