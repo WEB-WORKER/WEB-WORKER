@@ -45,7 +45,7 @@
 					speechRecognizer.start();
 
 					var finalTranscripts = '';
-					
+					var res = [];
 					
 					speechRecognizer.onresult = function(event){
 						
@@ -56,15 +56,18 @@
 							transcript.replace("\n", "<br>");
 							if(event.results[i].isFinal){
 								finalTranscripts += transcript;
+								res[i] = finalTranscripts;
 							}else{
 								interimTranscripts += transcript;
 							}
 						}
 // 						r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
-						r.innerHTML = interimTranscripts;
+// 						r.innerHTML = interimTranscripts;
+// 						r.innerHTML = res[i];						
 					};
 					speechRecognizer.onerror = function (event) {						
 					};
+					console.log(res);
 				}else{
 					r.innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
 				}
