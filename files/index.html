@@ -55,8 +55,7 @@
 						}
 						r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
 					};
-					speechRecognizer.onerror = function (event) {
-						alert("error");
+					speechRecognizer.onerror = function (event) {						
 					};
 				}else{
 					r.innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
