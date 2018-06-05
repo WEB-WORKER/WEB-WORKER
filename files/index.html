@@ -47,12 +47,13 @@
 
 					var finalTranscripts = '';
 					
-					console.log(res[1]);
+					
 					speechRecognizer.onresult = function(event){
 						
 						var interimTranscripts = '';
 						for(var i = event.resultIndex; i < event.results.length; i++){													
 							var transcript = event.results[i][0].transcript;
+							console.log(res[1]);
 // 							transcript.replace("\n", "<br>");
 							if(event.results[i].isFinal){
 								finalTranscripts += transcript;								
