@@ -31,7 +31,8 @@
 		<button class="button1" onclick="startConverting();"><i class="fa fa-microphone"></i></button>
 		<script type="text/javascript">
 
-
+			var res = ["1","2"];
+		        console.log(res[1]);
 
 
 			var r = document.getElementById('result');
@@ -45,8 +46,7 @@
 					speechRecognizer.start();
 
 					var finalTranscripts = '';
-					var res = ["1","2"];
-					console.log(res[1]);
+					
 					
 					speechRecognizer.onresult = function(event){
 						
