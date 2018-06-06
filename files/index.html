@@ -320,7 +320,16 @@ function copyButton() {
 //   copy_button.style.display = 'none';
 //   copy_info.style.display = 'inline-block';
 //   showInfo('');
- window.clipboardData.setData("Text","Текст для копирования");
+    var ta = document.getElementById('cont'); 
+	   var range = document.createRange();
+	   range.selectNode(ta); 
+	   window.getSelection().addRange(range); 	   
+	   try { 
+	    document.execCommand('copy'); 
+	  } catch(err) { 
+	    console.log('Can`t copy, boss'); 
+	  } 	  
+	  window.getSelection().removeAllRanges();
 }
 function emailButton() {
   if (recognizing) {
