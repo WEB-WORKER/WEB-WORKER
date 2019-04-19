@@ -27,7 +27,7 @@
 
   // З
   var newLi = document.createElement('li'),
-      arr = [];
+      content = '';
     
   
     
@@ -37,8 +37,8 @@
     
     
     if (result.isFinal) {
-      arr.push(result[0].transcript);    
-      console.log('Массив:', arr);
+      content.concat(" ", result[0].transcript);    
+      console.log(content);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
