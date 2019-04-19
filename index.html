@@ -25,6 +25,7 @@
     var result = event.results[event.resultIndex];
     if (result.isFinal) {
       document.getElementById('anchor').innerHTML = result[0].transcript;
+      continue;
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
