@@ -9,11 +9,14 @@
   <button onclick="speech ()">Слушать</button>
   <button onclick="talk ()">Проговорить</button>
   <button onclick="stop ()">Остановить</button>
-  <div id="anchor"></div>
+  <ol id="list">    
+  </ol>
+
   <script>
   // Создаем распознаватель
   var recognizer = new webkitSpeechRecognition();
-    
+  
+  //тип распознавания длительный
   recognizer.continuous = true;
 
   // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
@@ -22,14 +25,15 @@
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
 
+  var newLi = document.createElement('li');
+    
   // Используем колбек для обработки результатов
   recognizer.onresult = function (event) {
     var result = event.results[event.resultIndex];
     
-   // console.log(result[0].transcript);
     
     if (result.isFinal) {
-      document.getElementById('anchor').innerHTML = result[0].transcript;     
+      newLi.innerHTML = result[0].transcript;
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
