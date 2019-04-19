@@ -38,7 +38,8 @@
     
     if (result.isFinal) {      
       // document.getElementById("content").innerHTML = arr.push(result[0].transcript);
-      console.log(arr.push(result[0].transcript));
+      var pushed = arr.push(result[0].transcript);
+      console.log(pushed);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
