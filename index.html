@@ -24,7 +24,8 @@
   recognizer.lang = 'ru-Ru';
   // З
   var newLi = document.createElement('li'),
-      arr = [];
+      arr = [],
+      str;
     
   
     
@@ -36,10 +37,12 @@
     if (result.isFinal) {      
       arr.push(result[0].transcript);
       document.getElementById('cont').innerHTML = arr;
+      str = arr.join();
       console.log('Массив:', arr);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
+    document.getElementById('cont').innerHTML = str;
   };
   function speech () {
     // Начинаем слушать микрофон и распознавать голос
