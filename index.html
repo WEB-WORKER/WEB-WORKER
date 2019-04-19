@@ -25,7 +25,11 @@
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
 
-  var newLi = document.createElement('li');
+  // З
+  var newLi = document.createElement('li'),
+      arr = [];
+    
+  
     
   // Используем колбек для обработки результатов
   recognizer.onresult = function (event) {
@@ -33,8 +37,8 @@
     
     
     if (result.isFinal) {
-      newLi.innerHTML = result[0].transcript;
-      list.appendChild(newLi);
+      arr.push(result[0].transcript);    
+      console.log('Массив:', arr);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
