@@ -9,8 +9,8 @@
   <button onclick="speech ()">Слушать</button>
   <button onclick="talk ()">Проговорить</button>
   <button onclick="stop ()">Остановить</button>
-  <ol id="list">    
-  </ol>
+  <div id="content">    
+  </div>
 
   <script>
   // Создаем распознаватель
@@ -37,8 +37,8 @@
     
     
     if (result.isFinal) {
-      content.concat(" ", result[0].transcript);    
-      console.log(content);
+      //content.concat(" ", result[0].transcript);    
+      document.getElementById("content").innerHTML = result[0].transcript;
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
