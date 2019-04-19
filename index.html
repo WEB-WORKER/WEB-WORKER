@@ -24,7 +24,7 @@
   recognizer.onresult = function (event) {
     var result = event.results[event.resultIndex];
     
-    document.getElementById('anchor').innerHTML = result[0].transcript;
+    console.log(result[0].transcript);
     
     /*if (result.isFinal) {
       document.getElementById('anchor').innerHTML = result[0].transcript;
