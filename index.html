@@ -34,6 +34,7 @@
     
     if (result.isFinal) {
       newLi.innerHTML = result[0].transcript;
+      list.appendChild(newLi);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
