@@ -9,8 +9,8 @@
   <button onclick="speech ()">Слушать</button>
   <button onclick="talk ()">Проговорить</button>
   <button onclick="stop ()">Остановить</button>
-  <ol id="list">    
-  </ol>
+  <div id="cont">    
+  </div>
 
   <script>
   // Создаем распознаватель
@@ -33,8 +33,9 @@
     var result = event.results[event.resultIndex];
     
     
-    if (result.isFinal) {
-      arr.push(result[0].transcript);    
+    if (result.isFinal) {      
+      arr.push(result[0].transcript);
+      dicument.getElementById('cont').innerHTML = arr;
       console.log('Массив:', arr);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
