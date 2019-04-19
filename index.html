@@ -36,9 +36,9 @@
     var result = event.results[event.resultIndex];
     
     
-    if (result.isFinal) {
-      arr.push(result[0].transcript);
-      document.getElementById("content").innerHTML = arr;
+    if (result.isFinal) {      
+      document.getElementById("content").innerHTML = arr.push(result[0].transcript);
+      console.log(arr.push(result[0].transcript));
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
