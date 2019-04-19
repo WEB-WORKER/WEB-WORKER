@@ -9,8 +9,8 @@
   <button onclick="speech ()">Слушать</button>
   <button onclick="talk ()">Проговорить</button>
   <button onclick="stop ()">Остановить</button>
-  <div id="content">    
-  </div>
+  <ol id="list">    
+  </ol>
 
   <script>
   // Создаем распознаватель
@@ -18,16 +18,13 @@
   
   //тип распознавания длительный
   recognizer.continuous = true;
-
   // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
   recognizer.interimResults = true;
-
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
-
   // З
   var newLi = document.createElement('li'),
-      arr = ['123'];
+      arr = [];
     
   
     
@@ -36,27 +33,22 @@
     var result = event.results[event.resultIndex];
     
     
-    if (result.isFinal) {      
-      // document.getElementById("content").innerHTML = arr.push(result[0].transcript);
-      var pushed = arr.push(result[0].transcript);
-      console.log(pushed);
+    if (result.isFinal) {
+      arr.push(result[0].transcript);    
+      console.log('Массив:', arr);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
   };
-
   function speech () {
     // Начинаем слушать микрофон и распознавать голос
     recognizer.start();
   }
-
   var synth = window.speechSynthesis;
   var utterance = new SpeechSynthesisUtterance('How about we say this now? This is quite a long sentence to say.');
-
   function talk () {
     synth.speak (utterance);
   }
-
   function stop () {
     synth.pause();
   }
