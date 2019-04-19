@@ -27,7 +27,7 @@
 
   // З
   var newLi = document.createElement('li'),
-      arr = [];
+      arr = ['123'];
     
   
     
@@ -37,8 +37,8 @@
     
     
     if (result.isFinal) {      
-      document.getElementById("content").innerHTML = arr.push(result[0].transcript);
-      console.log(arr.push(result[0].transcript));
+      // document.getElementById("content").innerHTML = arr.push(result[0].transcript);
+      console.log(arr);
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
