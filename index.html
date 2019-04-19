@@ -27,7 +27,7 @@
 
   // З
   var newLi = document.createElement('li'),
-      content = '';
+      arr = [];
     
   
     
@@ -37,8 +37,8 @@
     
     
     if (result.isFinal) {
-      content.concat(content, result[0].transcript);
-      document.getElementById("content").innerHTML = content;
+      arr.push(result[0].transcript);
+      document.getElementById("content").innerHTML = arr;
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
     }
