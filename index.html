@@ -37,7 +37,7 @@
     
     
     if (result.isFinal) {
-      content.concat(" ", result[0].transcript);
+      content.concat(content, result[0].transcript);
       document.getElementById("content").innerHTML = content;
     } else {
       console.log('Промежуточный результат: ', result[0].transcript);
