@@ -28,9 +28,7 @@
       str,
       i = 0;
     
-  superarr[0] = [1];
-  console.log(superarr);
-  console.log(superarr[0]);
+  superarr[0] = [1];  
     
   // Используем колбек для обработки результатов
   recognizer.onresult = function (event) {
@@ -43,8 +41,7 @@
         console.log("получилось!");
         i = i + 1;
         console.log(i);
-        superarr[i] = arr;
-        console.log(superarr);
+        superarr[i] = arr;        
       } else {        
         arr.push(result[0].transcript);
         //document.getElementById('cont').innerHTML = arr;
@@ -54,6 +51,7 @@
     } else {      
       console.log('Промежуточный результат: ', result[0].transcript);      
     }
+    console.log(superarr);
     document.getElementById('cont').innerHTML = str;
   };
   function speech () {
