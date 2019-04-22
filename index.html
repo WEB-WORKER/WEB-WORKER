@@ -32,13 +32,9 @@
     
   // Используем колбек для обработки результатов
   recognizer.onresult = function (event) {
-    var result = event.results[event.resultIndex];
+    var result = event.results[event.resultIndex];   
     
     
-    
-    if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
-      console.log("получилось!");
-    }
     
     if (result.isFinal) {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
