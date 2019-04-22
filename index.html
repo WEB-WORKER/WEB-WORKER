@@ -37,7 +37,7 @@
         arr.push(result[0].transcript);        
         str = arr.join();
         console.log('arr:', arr);
-        console.log('str:', str);
+        
         
     } else {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
@@ -50,7 +50,8 @@
       } else {  
           console.log('Промежуточный результат: ', '+');      
       }
-    }    
+    }
+    console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
   };
   function speech () {
