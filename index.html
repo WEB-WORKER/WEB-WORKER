@@ -38,9 +38,10 @@
     
     if (result.isFinal) {            
         arr.push(result[0].transcript);
-        document.getElementById('cont').innerHTML = arr;
+        document.getElementById('cont').innerHTML = superarr;
         str = arr.join();
-        console.log('Массив:', arr);             
+        console.log('arr:', arr);
+        console.log('arr:', superarr);
     } else {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
         console.log("получилось!");
@@ -53,7 +54,7 @@
         arr[0] = 1;
         
       } else {  
-          console.log('Промежуточный результат: ', result[0].transcript);      
+          console.log('Промежуточный результат: ', '+');      
       }
     }
     console.log(superarr);
