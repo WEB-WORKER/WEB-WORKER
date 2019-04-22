@@ -22,13 +22,13 @@
   recognizer.interimResults = true;
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
-  // З
-  var newLi = document.createElement('li'),
+  
+  var superarr = [],
       arr = [],
       str,
       i = 0;
     
-  
+  superarr[0] = [1];
     
   // Используем колбек для обработки результатов
   recognizer.onresult = function (event) {
@@ -44,8 +44,9 @@
       } else {        
         arr.push(result[0].transcript);
         //document.getElementById('cont').innerHTML = arr;
-        str = arr[i].join();
+        //str = arr.join();
         console.log('Массив:', arr);
+        superarr[i] = arr;
       }
     } else {      
       console.log('Промежуточный результат: ', result[0].transcript);      
