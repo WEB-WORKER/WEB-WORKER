@@ -33,6 +33,9 @@
   recognizer.onresult = function (event) {
     var result = event.results[event.resultIndex];
     
+    if(result[0].transcript.toLowerCase().indexOf("следующий файл") > 0){
+      console.log(получилось!);
+    }
     
     if (result.isFinal) {      
       arr.push(result[0].transcript);
