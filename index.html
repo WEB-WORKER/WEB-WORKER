@@ -23,8 +23,7 @@
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
   
-  var superarr = [],
-      arr = [],
+  var arr = [],
       str,
       i = 0;
     
@@ -37,26 +36,22 @@
     
     
     if (result.isFinal) {            
-        arr.push(result[0].transcript);
-        document.getElementById('cont').innerHTML = superarr;
+        arr.push(result[0].transcript);        
         str = arr.join();
         console.log('arr:', arr);
-        console.log('arr:', superarr);
+        
     } else {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
-        console.log("получилось!");
-        superarr[i] = arr;
+        console.log("получилось!");       
         
         i = i + 1;
-        console.log(i);
-        
-        arr = [];        
+        console.log(i);       
+                
         
       } else {  
           console.log('Промежуточный результат: ', '+');      
       }
-    }
-    console.log(superarr);
+    }    
     document.getElementById('cont').innerHTML = str;
   };
   function speech () {
