@@ -45,7 +45,11 @@
       str = arr.join();
       console.log('Массив:', arr);
     } else {
+      if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
+      console.log("получилось!");
+      } else {
       console.log('Промежуточный результат: ', result[0].transcript);
+      }
     }
     document.getElementById('cont').innerHTML = str;
   };
