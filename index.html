@@ -24,8 +24,9 @@
   recognizer.lang = 'ru-Ru';
   // З
   var newLi = document.createElement('li'),
-      arr = [],
-      str;
+      arr = [][],
+      str,
+      i;
     
   
     
@@ -39,19 +40,18 @@
       console.log("получилось!");
     }
     
-    if (result.isFinal) {      
-      arr.push(result[0].transcript);
-      document.getElementById('cont').innerHTML = arr;
-      str = arr.join();
-      console.log('Массив:', arr);
-    } else {
+    if (result.isFinal) {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
-      console.log("получилось!");
-      recognizer.stop();
-      recognizer.start();
+        console.log("получилось!");
+        i = i + 1;
       } else {
-      console.log('Промежуточный результат: ', result[0].transcript);
+        arr.push(result[0].transcript);
+        document.getElementById('cont').innerHTML = arr[i];
+        str = arr[i].join();
+        console.log('Массив:', arr[i]);
       }
+    } else {      
+      console.log('Промежуточный результат: ', result[0].transcript);      
     }
     document.getElementById('cont').innerHTML = str;
   };
