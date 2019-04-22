@@ -47,6 +47,8 @@
     } else {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
       console.log("получилось!");
+      recognizer.stop();
+      recognizer.start();
       } else {
       console.log('Промежуточный результат: ', result[0].transcript);
       }
