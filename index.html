@@ -40,9 +40,10 @@
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
         console.log("получилось!");
         i = i + 1;
+        console.log(i);
       } else {
         arr[0] = [1];
-        arr[0].push(result[0].transcript);
+        arr[i].push(result[0].transcript);
         document.getElementById('cont').innerHTML = arr;
         //str = arr[i].join();
         console.log('Массив:', arr);
