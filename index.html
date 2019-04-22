@@ -44,9 +44,11 @@
     } else {
       if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
         console.log("получилось!");
+        superarr[i] = arr;
+        
         i = i + 1;
         console.log(i);
-        superarr[i] = arr;
+        
         arr = 0;
       } else {  
           console.log('Промежуточный результат: ', result[0].transcript);      
