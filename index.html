@@ -41,13 +41,13 @@
         console.log("получилось!");
         i = i + 1;
         console.log(i);
+        superarr[i] = arr;
+        console.log(superarr);
       } else {        
         arr.push(result[0].transcript);
         //document.getElementById('cont').innerHTML = arr;
         //str = arr.join();
-        console.log('Массив:', arr);
-        superarr[i] = arr;
-        console.log(superarr);
+        console.log('Массив:', arr);        
       }
     } else {      
       console.log('Промежуточный результат: ', result[0].transcript);      
