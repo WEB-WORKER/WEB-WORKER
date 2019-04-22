@@ -41,9 +41,8 @@
         console.log("получилось!");
         i = i + 1;
         console.log(i);
-      } else {
-        arr[0] = [1];
-        arr[i].push(result[0].transcript);
+      } else {        
+        arr.push(result[0].transcript);
         document.getElementById('cont').innerHTML = arr;
         //str = arr[i].join();
         console.log('Массив:', arr);
