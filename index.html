@@ -36,20 +36,12 @@
     if (result.isFinal) {            
         arr.push(result[0].transcript);        
         str = arr.join();
-        console.log('arr:', arr);
-        
+        console.log('arr:', arr);        
         
     } else {
-      if((result[0].transcript).toLowerCase().indexOf("следующий файл") > 0){
-        console.log("получилось!");       
-        
-        i = i + 1;
-        console.log(i);       
-                
-        
-      } else {  
-          console.log('Промежуточный результат: ', '+');      
-      }
+      
+          // console.log('Промежуточный результат: ', 'result[0].transcript');      
+             console.log('Система записывает промежуточные результаты');      
     }
     console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
