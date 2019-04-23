@@ -23,6 +23,7 @@
   recognizer.lang = 'ru-Ru';
   
   var arr = [],
+      resultarr = [],
       str,
       i = 0;    
    
@@ -43,8 +44,11 @@
           // console.log('Промежуточный результат: ', 'result[0].transcript');      
              console.log('Система записывает промежуточные результаты');      
     }
-    console.log('str:', str);
+    resultarr = str.split('Следующий файл');
+    console.log('resultarr:', resultarr);
+    //console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
+    
   };
   function speech () {
     // Начинаем слушать микрофон и распознавать голос
