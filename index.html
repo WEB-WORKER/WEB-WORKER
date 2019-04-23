@@ -37,7 +37,8 @@
     if (result.isFinal) {            
         arr.push(result[0].transcript);        
         str = arr.join();
-        console.log('arr:', arr);        
+        console.log('arr:', arr);
+        recognizer.start();
         
     } else {
       
