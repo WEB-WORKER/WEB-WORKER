@@ -54,6 +54,18 @@
     // Начинаем слушать микрофон и распознавать голос
     recognizer.start();
   }
+    
+  function callback(x, callback) {
+    function speech(){
+	      recognizer.start();
+    }
+    speech();
+     callback();
+  }
+
+  callback('abc', function() {
+    speech();
+  });
    //если аудио кончается начинаем распознавать снова
   recognizer.onspeechend = function() {
     recognizer.start();
