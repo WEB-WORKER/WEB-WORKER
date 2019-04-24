@@ -37,7 +37,7 @@
     if (result.isFinal) {            
         arr.push(result[0].transcript);        
         str = arr.join();
-        console.log('arr:', arr);       
+        // console.log('arr:', arr);       
         
     } else {
       
@@ -47,11 +47,20 @@
              
     }
     resultarr = str.split('следующий файл');
-    console.log('resultarr:', resultarr);
+    // console.log('resultarr:', resultarr);
+    
+    console.log('массив результат:' + result);
+    console.log('recognizer' + recognizer);
+    
     //console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
     
+    
+    
   };
+    
+    
+    
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.stop();  
@@ -59,8 +68,7 @@
   }
     
   
-console.log('массив результат:' + result);
-console.log('recognizer' + recognizer);
+
   
    //если аудио кончается начинаем распознавать снова
  // recognizer.onspeechend = function() {
