@@ -66,8 +66,10 @@
   function stop(){
     recognizer.stop();
   }
-    
-  setTimeout(function() { speech() }, 10000);
+  if(recognizer.start() != 0){
+      setTimeout(function() { speech() }, 10000);
+     }  
+  
   </script>
 
 </body>
