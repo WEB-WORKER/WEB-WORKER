@@ -6,10 +6,8 @@
 </head>
 <body>
 
-  <button onclick="callback('abc', function() {
-                        speech();
-                          });">Слушать</button>  
-  <button onclick="stop ()">Остановить</button>
+  <button onclick="speech();">Перезапуск</button>  
+  <button onclick="stop()">Остановить</button>
   <div id="cont">    
   </div>
 
@@ -52,20 +50,13 @@
     document.getElementById('cont').innerHTML = str;
     
   };
-  function speech () {
+  function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.stop();  
     recognizer.start();
   }
     
-  function callback(x, callback) {
-    function speech(){
-	      recognizer.stop();
-	      recognizer.start();
-    }
-    speech();
-    callback();
-  }
+  
 
   
    //если аудио кончается начинаем распознавать снова
