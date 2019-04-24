@@ -6,7 +6,9 @@
 </head>
 <body>
 
-  <button onclick="callback ()">Слушать</button>  
+  <button onclick="callback('abc', function() {
+                        speech();
+                          });">Слушать</button>  
   <button onclick="stop ()">Остановить</button>
   <div id="cont">    
   </div>
@@ -60,12 +62,10 @@
 	      recognizer.start();
     }
     speech();
-     callback();
+    callback();
   }
 
-  callback('abc', function() {
-    speech();
-  });
+  
    //если аудио кончается начинаем распознавать снова
  // recognizer.onspeechend = function() {
  //   recognizer.start();
