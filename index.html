@@ -37,7 +37,7 @@
     if (result.isFinal) {            
         arr.push(result[0].transcript);        
         str = arr.join();
-        // console.log('arr:', arr);       
+        console.log('arr:', arr);       
         
     } else {
       
@@ -47,10 +47,10 @@
              
     }
     resultarr = str.split('следующий файл');
-    // console.log('resultarr:', resultarr);
+    console.log('resultarr:', resultarr);
     
     
-    console.log('recognizer' + recognizer);
+    
     
     //console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
