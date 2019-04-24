@@ -77,8 +77,9 @@
   function stop(){
     recognizer.stop();
   }
-  if(recognizer.start() != 0){
-      setInterval(function() { speech() }, 3000);
+  if(result[0].transcript != 0){
+      // setInterval(function() { speech() }, 3000);
+      speech();
      }  
   
   </script>
