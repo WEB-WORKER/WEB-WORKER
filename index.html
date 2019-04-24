@@ -79,6 +79,8 @@
   }
   
  setInterval(function() { speech() }, 10000);
+    
+ recognizer.onerror = function() { speech() };
   
   
   </script>
