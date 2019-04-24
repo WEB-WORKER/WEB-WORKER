@@ -42,7 +42,9 @@
     } else {
       
           // console.log('Промежуточный результат: ', 'result[0].transcript');      
-             console.log('Система записывает промежуточные результаты');      
+          //   console.log('Система записывает промежуточные результаты');
+             
+             
     }
     resultarr = str.split('следующий файл');
     console.log('resultarr:', resultarr);
@@ -57,7 +59,8 @@
   }
     
   
-
+console.log('массив результат:' + result);
+console.log('recognizer' + recognizer);
   
    //если аудио кончается начинаем распознавать снова
  // recognizer.onspeechend = function() {
