@@ -6,8 +6,8 @@
 </head>
 <body>
 
-  <!--<button onclick="speech ()">Слушать</button>  
-  <button onclick="stop ()">Остановить</button> -->
+  <button onclick="speech ()">Слушать</button>  
+  <button onclick="stop ()">Остановить</button>
   <div id="cont">    
   </div>
 
@@ -50,10 +50,10 @@
     document.getElementById('cont').innerHTML = str;
     
   };
- // function speech () {
+  function speech () {
     // Начинаем слушать микрофон и распознавать голос
     recognizer.start();
- // }  
+  }  
   function stop () {
     synth.pause();
   }
