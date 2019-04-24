@@ -55,7 +55,7 @@
     recognizer.start();
   }
    //если аудио кончается начинаем распознавать снова
-  recognizer.onaudioend = function() {
+  recognizer.onspeechend = function() {
     recognizer.start();
   }
   function stop () {
