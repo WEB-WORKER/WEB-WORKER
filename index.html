@@ -54,11 +54,13 @@
   };
   function speech () {
     // Начинаем слушать микрофон и распознавать голос
+    recognizer.stop();  
     recognizer.start();
   }
     
   function callback(x, callback) {
     function speech(){
+	      recognizer.stop();
 	      recognizer.start();
     }
     speech();
