@@ -64,7 +64,7 @@
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.stop();  
-    setTimeout(function() { recognizer.start() }, 100);
+    setTimeout(function() { recognizer.start() }, 150);
   }
     
   
@@ -78,7 +78,7 @@
     recognizer.stop();
   }
   
- setInterval(function() { speech() }, 5000);
+ setInterval(function() { speech() }, 10000);
     
  recognizer.onerror = function() { speech() };
   
