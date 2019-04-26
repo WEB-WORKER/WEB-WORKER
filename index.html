@@ -141,10 +141,15 @@ var other = ['юридической'];
 		}
 	};
 
+	//var newLi = document.createElement('li');
+  	//newLi.innerHTML = 'Привет, мир!';
 
+  	
+	  
+	  
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
-		document.getElementById('cont').innerHTML = resultarr;
+		document.getElementById('cont').appendChild(resultarr[i]);
 	}
   }	  
 	  
