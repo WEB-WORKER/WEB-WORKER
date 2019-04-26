@@ -113,9 +113,33 @@ var other = ['юридической'];
 	    }
     };
       
+	    
+	    
+	for (i in resultarr){
+		for (j in sales){
+			if (resultarr[i].indexOf(sales[j]) != -1){
+				resultarr[i] = 'Отдел продаж';			
+			}
+	};
+	for (j in service){
+			if (resultarr[i].indexOf(service[j]) != -1){
+				resultarr[i] = 'Сервис';			
+			}
+	};
+	for (j in other){
+			if (resultarr[i].indexOf(other[j]) != -1){
+				resultarr[i] = 'Прочее';			
+			}
+		}
+	};
+
+
+	for (i in resultarr){
+		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
+	}
    
       
-  };    
+ };    
     
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
