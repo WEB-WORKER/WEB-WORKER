@@ -8,6 +8,7 @@
 
   <button onclick="speech();">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
+  <button onclick="send()">Отправить</button>
   <div id="cont">    
   </div>
 
@@ -107,11 +108,17 @@ var other = ['юридической'];
     //console.log('str:', str);
     // document.getElementById('cont').innerHTML = str;
       
-    for (i in sndarr){	
+   
+   
+      
+ };    
+    
+  function send(){
+  	 for (i in sndarr){	
 	    if (sndarr[i] != ' 123 '){
 		    res = resultarr.push(sndarr[i]);
 	    }
-    };
+       };
       
 	    
 	    
@@ -137,10 +144,10 @@ var other = ['юридической'];
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
 	}
-   
-      
- };    
-    
+  }	  
+	  
+	  
+	  
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.stop();  
