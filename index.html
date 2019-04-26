@@ -9,8 +9,8 @@
   <button onclick="speech();">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>
-  <div id="cont">    
-  </div>
+  <ul id="cont">    
+  </ul>
 
   <script>
   // Создаем распознаватель
@@ -143,13 +143,16 @@ var other = ['юридической'];
 
 	//var newLi = document.createElement('li');
   	//newLi.innerHTML = 'Привет, мир!';
+	  
 
   	
 	  
 	  
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
-		document.getElementById('cont').appendChild('<li>' + resultarr[i] + '</li>');
+		var elem = document.createElement("li");
+          	    elem.innerHTML = parseInt(i)+1 + '. ' + resultarr[i];
+		    document.getElementById('list').appendChild(elem);
 	}
   }	  
 	  
