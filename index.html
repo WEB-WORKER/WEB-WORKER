@@ -9,6 +9,7 @@
   <button onclick="speech();">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>
+  <button onclick="cp()">Скопировать</button>
   <ul id="list">    
   </ul>
 
@@ -164,6 +165,27 @@ var other = ['юридической'];
   function stop(){
     recognizer.stop();
   }
+	  
+	  
+//Копирование в буфер обмена:	  
+function cp(){
+  //нашли наш контейнер
+  var ta = document.getElementById('cont'); 
+  //производим его выделение
+  var range = document.createRange();
+  range.selectNode(ta); 
+  window.getSelection().addRange(range); 
+ 
+  //пытаемся скопировать текст в буфер обмена
+  try { 
+    document.execCommand('copy'); 
+  } catch(err) { 
+    console.log('Can`t copy, boss'); 
+  } 
+  //очистим выделение текста, чтобы пользователь "не парился"
+  window.getSelection().removeAllRanges();
+};
+	  
   
  setInterval(function() { speech() }, 10000);
     
