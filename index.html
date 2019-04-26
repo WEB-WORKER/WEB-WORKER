@@ -22,58 +22,41 @@
   // Какой язык будем распознавать?
   recognizer.lang = 'ru-Ru';
   
-  var arr = [],
+  var fstarr       = [],
       resultarr = [],
       str,
-      i = 0;    
+      i = 0,
+      result;    
    
     
-  // Используем колбек для обработки результатов
-  recognizer.onresult = function (event) {
-    var result = event.results[event.resultIndex];   
-    
-    
+    // Используем колбек для обработки результатов
+    recognizer.onresult = function (event) {
+    result = event.results[event.resultIndex];
     
     if (result.isFinal) {            
-        arr.push(result[0].transcript);        
-        str = arr.join();
-        console.log('arr:', arr);       
+        fstarr.push(result[0].transcript);        
+        str = fstarr.join();
+        console.log('fstarr:', fstarr);       
         
     } else {
-      
           // console.log('Промежуточный результат: ', 'result[0].transcript');      
           //   console.log('Система записывает промежуточные результаты');
-             
-             
     }
+    
     resultarr = str.split('следующий файл');
     console.log('resultarr:', resultarr);
-    
-    
-    
-    
+        
     //console.log('str:', str);
     document.getElementById('cont').innerHTML = str;
-    
-    
-    
-  };
-    
-    
+  };    
     
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.stop();  
     setTimeout(function() { recognizer.start() }, 10);
   }
-    
   
-
   
-   //если аудио кончается начинаем распознавать снова
- // recognizer.onspeechend = function() {
- //   recognizer.start();
- // }
   function stop(){
     recognizer.stop();
   }
