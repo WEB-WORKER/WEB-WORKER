@@ -147,7 +147,7 @@ var other = ['юридической'];
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
 		var elem = document.createElement("li");
-          	    elem.innerHTML = ('+');
+          	    elem.innerHTML = (parseInt(i)+1 + '. ' + resultarr[i]);
 		    document.getElementById('list').appendChild(elem);
 	}
   }	  
