@@ -98,6 +98,10 @@ var service = ['диагностика',
 
 var other = ['юридической'];
    
+	  
+   recognizer.onspeechend = function() {
+   	speech();
+   };
     
     // Используем колбек для обработки результатов
     recognizer.onresult = function (event) {
@@ -196,9 +200,9 @@ function cp(){
 };
 	  
   
- setInterval(function() { speech() }, 10000);
+ // setInterval(function() { speech() }, 10000);
     
- recognizer.onerror = function() { speech() };
+ // recognizer.onerror = function() { speech() };
   
   
   </script>
