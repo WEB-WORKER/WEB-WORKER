@@ -153,18 +153,22 @@ var other = ['юридической',
 		for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
 				resultarr[i] = 'Отдел продаж';			
+			} 
+			else {
+				resultarr[i] = 'Прочее';
 			}
 	};
 	for (j in service){
 			if (resultarr[i].indexOf(service[j]) != -1){
 				resultarr[i] = 'Сервис';			
+			}		
+			else {
+				resultarr[i] = 'Прочее';
 			}
 	};
-	else {
-			if (resultarr[i].indexOf(other[j]) != -1){
-				resultarr[i] = 'Прочее';			
-			}
-		}
+	
+	
+	
 	};
 
 	  	
