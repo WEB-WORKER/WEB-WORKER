@@ -98,10 +98,15 @@ var service = ['диагностика',
 
 var other = ['юридической'];
    
-	  
-   recognizer.onspeechend = function() {
+   var speechFunction = function() {
    	speech();
-   };
+   };  
+	  
+   recognizer.onspeechend = speechFunction;
+   recognizer.onend = speechFunction;
+   recognizer.onerror = speechFunction;
+   recognizer.onnomatch = speechFunction;
+   recognizer.onsoundend = speechFunction;
     
     // Используем колбек для обработки результатов
     recognizer.onresult = function (event) {
