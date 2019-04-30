@@ -15,8 +15,6 @@
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>
   <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
-  <ol id="cont">
-  </ol>    	
   <ul id="list">    
   </ul>
 
@@ -50,19 +48,19 @@
          'связаться с отделом продаж',
          'кредитование',
          'купить',
-	 'покупку',         
+   'покупку',         
          'сколько стоит автомобиль',
          'стоимости автомобиля',
          'тест-драйв',
          'лучшая цена',
          'Добрый день отдел продаж',
-	 'сборка',
-	 'выставочные образцы',
-	 'кредитная ставка',
-	 'новая',
-	 'посмотреть можно',
-	 'в наличии',
-	 'в предложении'];
+   'сборка',
+   'выставочные образцы',
+   'кредитная ставка',
+   'новая',
+   'посмотреть можно',
+   'в наличии',
+   'в предложении'];
 var service = ['диагностика',
            'техническое обслуживание',
            'масло',
@@ -78,7 +76,7 @@ var service = ['диагностика',
            'обслуживание',
            'сделать т о',
            'нулевое то',
-	   'сервисного',
+     'сервисного',
            'сервисного центра',
            'частей',
            'покрасить бампер',
@@ -99,13 +97,13 @@ var service = ['диагностика',
            'проверка',
            'консультация',
            'шиномонтаж',
-	   'перечень',
-	   'мойка',
-	   'диагномстику'];
+     'перечень',
+     'мойка',
+     'диагномстику'];
 var other = ['юридической', 
-	     'поликлиника',
-	    'страхование',
-	    'бухгалтер'];
+       'поликлиника',
+      'страхование',
+      'бухгалтер'];
    
    var speechFunction = function() {
    	speech();
@@ -143,37 +141,30 @@ var other = ['юридической',
  };    
     
   function send(){
-	  for (i in sndarr){
-		var elem = document.createElement("li");
-          	    elem.innerHTML = (sndarr[i]);		    
-	  	    document.getElementById('cont').appendChild(elem);
-	  }
-	 
-	 //временно:
-  	 resultarr = sndarr;
+  	 for (i in sndarr){	
+	    if ((sndarr[i]).indexOf('31') == -1){
+		    res = resultarr.push(sndarr[i]);
+	    }
        };
       
 	    
 	    
 	for (i in resultarr){
-		
 		for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
 				resultarr[i] = 'Отдел продаж';			
 			}
-	         };
-		for (j in service){
+	};
+	for (j in service){
 			if (resultarr[i].indexOf(service[j]) != -1){
 				resultarr[i] = 'Сервис';			
 			}
-	         };
-		for (j in other) {
+	};
+	for (j in other){
 			if (resultarr[i].indexOf(other[j]) != -1){
 				resultarr[i] = 'Прочее';			
 			}
-		}		
-		
-		
+		}
 	};
 	  	
 	  
