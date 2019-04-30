@@ -15,6 +15,7 @@
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>
   <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
+  <div id="cont"></div>    	
   <ul id="list">    
   </ul>
 
@@ -140,6 +141,9 @@ var other = ['юридической',
  };    
     
   function send(){
+	  document.getElementById('cont').innerHTML(sndarr);
+	 
+	  
   	 for (i in sndarr){	
 	    if ((sndarr[i]).indexOf('31') == -1){
 		    res = resultarr.push(sndarr[i]);
