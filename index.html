@@ -111,10 +111,6 @@ var other = ['юридической',
        'поликлиника',
       'страхование',
       'бухгалтер'];
-   
-   var speechFunction = function() {
-   	speech();
-   };  
 	  
    recognizer.onspeechend = speechFunction;
    recognizer.onend = speechFunction;
@@ -124,58 +120,29 @@ var other = ['юридической',
     
     // Используем колбек для обработки результатов
     recognizer.onresult = function (event) {
-	    
-    	result = event.results[event.resultIndex];
+    result = event.results[event.resultIndex];
     
-    	if (result.isFinal) {            
-        	fstarr.push(result[0].transcript);        
-        	str = fstarr.join();
-        	//console.log('fstarr:', fstarr);  
-		sndarr = str.split('пирог');
-    //console.log('sndarr:', sndarr);
+    if (result.isFinal) {            
+        fstarr.push(result[0].transcript);        
+        str = fstarr.join();
+        console.log('fstarr:', fstarr);       
+        
+    } else {
+          // console.log('Промежуточный результат: ', 'result[0].transcript');      
+          //   console.log('Система записывает промежуточные результаты');
+    }
+    
+    sndarr = str.split('пирог');
+    console.log('sndarr:', sndarr);
         
     //console.log('str:', str);
     // document.getElementById('cont').innerHTML = str;
       
-   for (i in sndarr){	
-	    if ((sndarr[i]).indexOf('31') == -1){
-		    res = resultarr.push(sndarr[i]);
-	    }
-       };
-	    
    
-     for (i in resultarr){
-	   
-	for (j in sales){
-			if (resultarr[i].indexOf(sales[j]) != -1){
-				resultarr[i] = 'Отдел продаж';			
-			}
-	};
-	for (j in service){
-			if (resultarr[i].indexOf(service[j]) != -1){
-				resultarr[i] = 'Сервис';			
-			}
-	};
-	for (j in other){
-			if (resultarr[i].indexOf(other[j]) != -1){
-				resultarr[i] = 'Прочее';			
-			}
-	}
-      } 
-	 
-    console.log(resultarr);		
-        
-    	} else {
-          	// console.log('Промежуточный результат: ', 'result[0].transcript');      
-          	// console.log('Система записывает промежуточные результаты');
-    }
-    
-    
+   
+      
  };    
-
-
-  
-/*
+    
   function send(){
   	 for (i in sndarr){	
 	    if ((sndarr[i]).indexOf('31') == -1){
@@ -211,8 +178,8 @@ var other = ['юридической',
           	    elem.innerHTML = (resultarr[i]);
 		    document.getElementById('list').appendChild(elem);
 	}
-  };	  
-*/
+  }	  
+	  
 	  
 	  
   function speech(){
