@@ -130,14 +130,8 @@ var other = ['юридической',
     	if (result.isFinal) {            
         	fstarr.push(result[0].transcript);        
         	str = fstarr.join();
-        	//console.log('fstarr:', fstarr);       
-        
-    	} else {
-          	// console.log('Промежуточный результат: ', 'result[0].transcript');      
-          	// console.log('Система записывает промежуточные результаты');
-    }
-    
-    sndarr = str.split('пирог');
+        	//console.log('fstarr:', fstarr);  
+		sndarr = str.split('пирог');
     //console.log('sndarr:', sndarr);
         
     //console.log('str:', str);
@@ -149,7 +143,8 @@ var other = ['юридической',
 	    }
        };
 	    
-   for (i in resultarr){
+   
+     for (i in resultarr){
 	   
 	for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
@@ -166,11 +161,16 @@ var other = ['юридической',
 				resultarr[i] = 'Прочее';			
 			}
 	}
-	   
-	   
-   } 
+      } 
 	 
-   console.log(resultarr);
+    console.log(resultarr);		
+        
+    	} else {
+          	// console.log('Промежуточный результат: ', 'result[0].transcript');      
+          	// console.log('Система записывает промежуточные результаты');
+    }
+    
+    
  };    
 
 
