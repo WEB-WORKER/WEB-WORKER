@@ -61,7 +61,6 @@
 	 'новая',
 	 'посмотреть можно',
 	 'в наличии'];
-
 var service = ['диагностика',
            'техническое обслуживание',
            'масло',
@@ -99,7 +98,6 @@ var service = ['диагностика',
            'консультация',
            'шиномонтаж',
 	   'перечень'];
-
 var other = ['юридической', 
 	     'поликлиника',
 	    'страхование',
@@ -153,20 +151,19 @@ var other = ['юридической',
 		for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
 				resultarr[i] = 'Отдел продаж';			
-			} 			
-		};
+			}
+	};
 	for (j in service){
 			if (resultarr[i].indexOf(service[j]) != -1){
 				resultarr[i] = 'Сервис';			
 			}
-		};
-	for (j in other){
-			if (resultarr[i].indexOf(other[j] != -1){
+	};
+	else {
+			if (resultarr[i].indexOf(other[j]) != -1){
 				resultarr[i] = 'Прочее';			
 			}
-		};	
+		}
 	};
-
 	  	
 	  
 	  
