@@ -148,7 +148,14 @@ var speechFunction = function(){
  };    
 
  function test(){
+	console.log('outfstarr:',fstarr);
+	console.log('str:',fstarr.join());
  	console.log('outsndarr:',sndarr);
+	for (i in sndarr){	
+	    if ((sndarr[i]).indexOf('31') == -1){
+		    res = resultarr.push(sndarr[i]);
+	    }
+      console.log('resultarr:',resultarr);	
  }
  
     
