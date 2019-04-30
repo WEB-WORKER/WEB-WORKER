@@ -112,6 +112,10 @@ var other = ['юридической',
       'страхование',
       'бухгалтер'];
 	  
+var speechFunction = function(){
+			speech();
+};
+	  
    recognizer.onspeechend = speechFunction;
    recognizer.onend = speechFunction;
    recognizer.onerror = speechFunction;
