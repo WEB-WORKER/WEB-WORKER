@@ -158,7 +158,7 @@ var speechFunction = function(){
  	console.log('outsndarr:',sndarr);
 	 
 	for (i in sndarr){	
-	    if ((sndarr[i]).indexOf('31') != -1){
+	    if ((sndarr[i]).indexOf('31') == -1){
 		    res = resultarr.push(sndarr[i]);
 	    }
 	};
@@ -188,6 +188,7 @@ var speechFunction = function(){
           	    elem.innerHTML = (resultarr[i]);
 		    document.getElementById('list').appendChild(elem);
 	}
+	
  };
  
     
@@ -196,7 +197,33 @@ var speechFunction = function(){
 	    if ((sndarr[i]).indexOf('31') == -1){
 		    res = resultarr.push(sndarr[i]);
 	    }
-       }; 
+	};
+	 
+	for (i in resultarr){
+		for (j in sales){
+			if (resultarr[i].indexOf(sales[j]) != -1){
+				resultarr[i] = 'Отдел продаж';			
+			}
+	};
+	for (j in service){
+			if (resultarr[i].indexOf(service[j]) != -1){
+				resultarr[i] = 'Сервис';			
+			}
+	};
+	for (j in other){
+			if (resultarr[i].indexOf(other[j]) != -1){
+				resultarr[i] = 'Прочее';			
+			}
+		}
+	};
+        console.log('resultarr:',resultarr);
+	 
+	for (i in resultarr){
+		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
+		var elem = document.createElement("li");
+          	    elem.innerHTML = (resultarr[i]);
+		    document.getElementById('list').appendChild(elem);
+	}
 	  
 	
   }	  
