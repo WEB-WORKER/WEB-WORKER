@@ -61,7 +61,14 @@
          'новая',
          'посмотреть можно',
          'в наличии',
-         'в предложении'];
+         'в предложении',
+	 'какая вас заинтересовала',
+	 'знакомы с машиной',
+	 'модельному ряду',
+         'условия приобритения',
+         'автомобиль со скидкой',
+         'если мы рассматриваем эту модель'
+	  ];
 	  
 var service = ['диагностика',
            'техническое обслуживание',
@@ -158,7 +165,7 @@ var speechFunction = function(){
  	console.log('outsndarr:',sndarr);
 	 
 	for (i in sndarr){	
-	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 6){		    
+	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 8){		    
 	    }
 	    else {
 	    	res = resultarr.push(sndarr[i]);
