@@ -52,6 +52,7 @@
          'покупку',         
          'сколько стоит автомобиль',
          'стоимости автомобиля',
+	 'приобретать автомобиль',
          'тест-драйв',
          'лучшая цена',
          'Добрый день отдел продаж',
@@ -122,7 +123,9 @@ var service = ['диагностика',
 var other = ['юридической', 
        'поликлиника',
       'страхование',
-      'бухгалтер'];
+      'бухгалтер',
+      'пока занят',
+      'перерыв',];
 	  
 var speechFunction = function(){
 			speech();
@@ -169,7 +172,7 @@ var speechFunction = function(){
  	console.log('outsndarr:',sndarr);
 	 
 	for (i in sndarr){	
-	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 8){		    
+	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 15){		    
 	    }
 	    else {
 	    	res = resultarr.push(sndarr[i]);
