@@ -117,7 +117,11 @@ var service = ['диагностика',
 	   'шланги',
 	   'хотел бы на то',
 	   'диагности',
-	   'покраска бампера'
+	   'покраска бампера',
+	   'обслужива',
+           'масля',
+           'топлив',
+           'свечи зажигания',
 	   ];
 	  
 var other = ['юридической', 
@@ -172,7 +176,7 @@ var speechFunction = function(){
  	console.log('outsndarr:',sndarr);
 	 
 	for (i in sndarr){	
-	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 15){		    
+	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 18){		    
 	    }
 	    else {
 	    	res = resultarr.push(sndarr[i]);
