@@ -10,12 +10,18 @@
   </style>
 </head>
 <body>
+  <h2>Распознанные данные:</h2>
   <ul id="list">    
   </ul>
   <button onclick="speech();">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>  
   <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
+  <h3>Массив из строки:</h3>
+  <div id="sndarr"></div>
+  <h3>Результирующий массив:</h3>
+  <div id="resultarr"></div>
+  
   
 
   <script>
@@ -183,26 +189,18 @@ var speechFunction = function(){
            console.log('Промежуточный результат: ' + result[0].transcript);      
           //   console.log('Система записывает промежуточные результаты');
     }
-    
-    //sndarr = str.split('пирог');
-    //console.log('sndarr:', sndarr);
-        
-    //console.log('str:', str);
-    // document.getElementById('cont').innerHTML = str;    
-   
-  
       
  };    
 
  function send(){
 	 
-	console.log('outfstarr:',fstarr);
+	console.log('Было:',fstarr);
 	 
 	str = fstarr.join().toLowerCase();
-	console.log('str:',str);
+	console.log('Строка:',str);
 	 
 	sndarr = str.split('пирог');
- 	console.log('outsndarr:',sndarr);
+ 	console.log('Массив из строки:',sndarr);
 	 
 	for (i in sndarr){	
 	    if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 18){		    
@@ -243,7 +241,7 @@ var speechFunction = function(){
 	    }				
        };*/
 	 
-        console.log('resultarr:',resultarr);
+        console.log('Результирующий массив:',resultarr);
 	 
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
@@ -251,7 +249,9 @@ var speechFunction = function(){
           	    elem.innerHTML = (resultarr[i]);
 		    document.getElementById('list').appendChild(elem);
 	}
-	
+	 
+	document.getElementById('sndarr').innerHTML = sndarr; 
+	document.getElementById('resultarr').innerHTML = resultarr; 
  };
  
     
