@@ -212,16 +212,16 @@ var speechFunction = function(){
 				resultarr[i] = 'Прочее';			
 			}
 	     };
-	     for (j in service){
-			if (resultarr[i].indexOf(service[j]) != -1){
-				resultarr[i] = 'Сервис';			
-			}
-	     }
 	     for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
 				resultarr[i] = 'Отдел продаж';			
 			}
 	    };
+	     for (j in service){
+			if (resultarr[i].indexOf(service[j]) != -1){
+				resultarr[i] = 'Сервис';			
+			}
+	     };
 	    
 	 /////resultarr end
 	};
