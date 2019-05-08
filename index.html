@@ -153,7 +153,8 @@ var other = [
       'отменить',
       'перенести',
       'без документов',
-      'готовности машины'
+      'готовности машины',
+      'сдавал'
        ];
 	  
 var speechFunction = function(){
@@ -194,7 +195,7 @@ var speechFunction = function(){
 	 
 	console.log('outfstarr:',fstarr);
 	 
-	str = fstarr.join();
+	str = fstarr.join().toLowerCase();
 	console.log('str:',str);
 	 
 	sndarr = str.split('пирог');
