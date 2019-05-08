@@ -14,7 +14,7 @@
   <ul id="list">    
   </ul>
   <hr>
-  <button onclick="speech();">Перезапуск</button>  
+  <button onclick="speech()">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>  
   <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
@@ -85,7 +85,8 @@
           'купить у вас Nissan',
 	  'лизинг',
 	  'стадион продаж',
-	  'по наличию'
+	  'по наличию',
+	  'машина стоит'
 	  ];
 	  
 var service = ['диагностика',
@@ -154,7 +155,10 @@ var service = ['диагностика',
           'жидкост',
           'прокладка',
           'откручивается',
-          'заблокировалась'
+          'заблокировалась',
+	  'иммобилайзер',
+          'блокировки',
+          'пин-код'
 	   ];
 	  
 var other = [
@@ -239,7 +243,7 @@ var speechFunction = function(){
 	 /////resultarr end
 	};
 	
-	 /*
+	 
 	for (i in resultarr){	
 	    if (resultarr[i].indexOf('Отдел продаж') == -1){
 		   if (resultarr[i].indexOf('Сервис') == -1){
@@ -248,7 +252,7 @@ var speechFunction = function(){
 	  		    }	
 	  	   }
 	    }				
-       };*/
+       };
 	 
         console.log('Результирующий массив:',resultarr);
 	 
