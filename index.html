@@ -220,6 +220,17 @@ var speechFunction = function(){
 	    
 	 /////resultarr end
 	};
+	 
+	for (i in resultarr){	
+	    if (resultarr[i].indexOf('Отдел продаж') == -1){
+		   if (resultarr[i].indexOf('Сервис') == -1){
+			    if (resultarr[i].indexOf('Прочее') == -1){
+	  				resultarr[i] = 'Несостоявшийся';
+	  		    }	
+	  	   }
+	    }				
+       };
+	 
         console.log('resultarr:',resultarr);
 	 
 	for (i in resultarr){
