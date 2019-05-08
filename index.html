@@ -13,12 +13,15 @@
   <h2>Распознанные данные:</h2>
   <ul id="list">    
   </ul>
+  <hr>
   <button onclick="speech();">Перезапуск</button>  
   <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>  
   <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
+  <hr>
   <h3>Массив из строки:</h3>
   <div id="sndarr"></div>
+  <hr>
   <h3>Результирующий массив:</h3>
   <div id="resultarr"></div>
   
@@ -146,7 +149,13 @@ var service = ['диагностика',
 	   'сделать машину',
            'работы',
 	   'глушите',
-	   'болт концевика'
+	   'болт концевика',
+	   'перепрограммировать',
+          'не работает',
+          'жидкост',
+          'прокладка',
+          'откручивается',
+          'заблокировалась'
 	   ];
 	  
 var other = [
@@ -163,7 +172,8 @@ var other = [
       'перенести',
       'без документов',
       'готовности машины',
-      'сдавал'
+      'сдавал',
+      'страховки'
        ];
 	  
 var speechFunction = function(){
@@ -250,7 +260,7 @@ var speechFunction = function(){
 		    document.getElementById('list').appendChild(elem);
 	}
 	 
-	document.getElementById('sndarr').innerHTML = sndarr; 
+	document.getElementById('sndarr').innerHTML = sndarr; 	 
 	document.getElementById('resultarr').innerHTML = resultarr; 
  };
  
