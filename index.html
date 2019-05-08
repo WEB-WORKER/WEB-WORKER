@@ -145,7 +145,8 @@ var other = [
       'пока занят',
       'перерыв',
       'сотрудника нету',
-      'куда я попал'
+      'куда я попал',
+      'отменить'
        ];
 	  
 var speechFunction = function(){
@@ -205,17 +206,18 @@ var speechFunction = function(){
 			if (resultarr[i].indexOf(other[j]) != -1){
 				resultarr[i] = 'Прочее';			
 			}
-	     };		
+	     };
+	     for (j in service){
+			if (resultarr[i].indexOf(service[j]) != -1){
+				resultarr[i] = 'Сервис';			
+			}
+	     }
 	     for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
 				resultarr[i] = 'Отдел продаж';			
 			}
 	    };
-	    for (j in service){
-			if (resultarr[i].indexOf(service[j]) != -1){
-				resultarr[i] = 'Сервис';			
-			}
-	    }
+	    
 	 /////resultarr end
 	};
         console.log('resultarr:',resultarr);
