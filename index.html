@@ -257,9 +257,8 @@ var speechFunction = function(){
 	    else {
 	    	res = resultarr.push(sndarr[i]);
 	    }
-	};
-	 
-	document.getElementById('resultarr1').innerHTML = resultarr; 
+	};	 
+	
 	 
 	for (i in resultarr){
 	     for (j in other){
@@ -284,6 +283,7 @@ var speechFunction = function(){
 	 /////resultarr end
 	};
 	
+	document.getElementById('resultarr1').innerHTML = resultarr; 
 	 
 	for (i in resultarr){	
 	    if (resultarr[i].indexOf('Отдел продаж') == -1){
@@ -306,9 +306,7 @@ var speechFunction = function(){
 	 
 	document.getElementById('sndarr').innerHTML = sndarr; 	 
 	document.getElementById('resultarr2').innerHTML = resultarr; 
- };
- 
-    
+ };   
     
 	  
 	  
