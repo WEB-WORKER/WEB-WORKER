@@ -22,8 +22,11 @@
   <h3>Массив из строки:</h3>
   <div id="sndarr"></div>
   <hr>
+  <h3>Результирующий массив без обработки:</h3>
+  <div id="resultarr1"></div>
+  <hr>	
   <h3>Результирующий массив:</h3>
-  <div id="resultarr"></div>
+  <div id="resultarr2"></div>
   
   
 
@@ -256,6 +259,8 @@ var speechFunction = function(){
 	    }
 	};
 	 
+	document.getElementById('resultarr1').innerHTML = resultarr; 
+	 
 	for (i in resultarr){
 	     for (j in other){
 			if (resultarr[i].indexOf(other[j]) != -1){
@@ -300,7 +305,7 @@ var speechFunction = function(){
 	}
 	 
 	document.getElementById('sndarr').innerHTML = sndarr; 	 
-	document.getElementById('resultarr').innerHTML = resultarr; 
+	document.getElementById('resultarr2').innerHTML = resultarr; 
  };
  
     
