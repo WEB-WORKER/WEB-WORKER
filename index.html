@@ -107,7 +107,9 @@
           'новые автомобил',
 	  'первый взнос',
           'кредит автомобил',
-          'на механике'
+          'на механике',
+	  'вопросам приобретения автомобил',
+	  'приобретению автомобиля'
 	  ];
 	  
 var service = ['диагностика',
@@ -225,7 +227,8 @@ var speechFunction = function(){
    recognizer.onnomatch = speechFunction;
    recognizer.onsoundend = speechFunction;
     
-    // Используем колбек для обработки результатов
+try {
+   // Используем колбек для обработки результатов
     recognizer.onresult = function (event) {
     result = event.results[event.resultIndex];
     
@@ -239,7 +242,12 @@ var speechFunction = function(){
           //   console.log('Система записывает промежуточные результаты');
     }
       
- };    
+   } 
+
+} catch (err) {
+      speechFunction;	
+}	  
+       
 
  function send(){
 	 
