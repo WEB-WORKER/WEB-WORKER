@@ -249,12 +249,13 @@ var other = [
 var speechFunction = function(){
 			speech();
 };
-	  
+
+	  /*
    recognizer.onspeechend = speechFunction;
    recognizer.onend = speechFunction;
    recognizer.onerror = speechFunction;
    recognizer.onnomatch = speechFunction;
-   recognizer.onsoundend = speechFunction;
+   recognizer.onsoundend = speechFunction;*/
     
 try {
    // Используем колбек для обработки результатов
@@ -369,7 +370,7 @@ try {
   
   
   function stope(){
-    recognizer.abort();
+    recognizer.stop();
   };
 	  
 	  
