@@ -28,6 +28,7 @@
   <div id="resultarr2"></div>
 
   <script>
+  try{	  
   // Создаем распознаватель
   var recognizer = new webkitSpeechRecognition();
   
@@ -364,6 +365,9 @@ function cp(){
   //очистим выделение текста, чтобы пользователь "не парился"
   window.getSelection().removeAllRanges();
 };
+  } catch (err){
+   console.log('ошибок нет');
+  }
 	  
   </script>
 
