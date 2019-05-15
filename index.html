@@ -14,10 +14,9 @@
   <ul id="list">    
   </ul>
   <hr>
-  <button onclick="speech()">Пуск</button> 
-  <button onclick="respeech()">Перезапуск</button>  
-  <button onclick="stop()">Остановить</button>
-  <button onclick="send()">Отправить</button>  
+  <button onclick="speech()">Пуск</button>
+  <button onclick="stop()">Стоп</button>
+  <button onclick="send()">Вывести результат</button>  
   <button onclick="cp()">Скопировать в буфер</button>
   <hr>
   <h3>Массив из строки:</h3>
@@ -253,7 +252,7 @@ var speechFunction = function(){
 
 	  
    recognizer.onspeechend = speechFunction;
-   //recognizer.onend = speechFunction;
+   recognizer.onend = speechFunction;
    recognizer.onerror = speechFunction;
    recognizer.onnomatch = speechFunction;
    recognizer.onsoundend = speechFunction;
@@ -365,10 +364,10 @@ try {
   	recognizer.start();
   };	  
 	  
-  function respeech(){
+  /*function respeech(){
       stop();  
       setTimeout(function() { recognizer.start() }, 400);
-  };  
+  };*/  
   
   function stop(){
       recognizer.stop();
