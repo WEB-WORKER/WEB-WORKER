@@ -45,6 +45,9 @@
       sndarr    = [],
       resultarr = [],
       res       = [],
+      salesarr  = [],
+      servicearr  = [],
+      otherarr  = [],
       str,
       i = 0,
       result;
@@ -270,16 +273,21 @@ try {
 	    }
 	};	 
 	
+	salesarr = resultarr.slice(); 
+        servicearr = resultarr.slice();
+        otherarr = resultarr.slice();
 	 
 	for (i in resultarr){
 	     for (j in other){
 			if (resultarr[i].indexOf(other[j]) != -1){
-				resultarr[i] = 'Прочее';			
+				//resultarr[i] = 'Прочее';
+				otherarr[i] = '1';
 			}
 	     };
 	     for (j in sales){
 			if (resultarr[i].indexOf(sales[j]) != -1){
-				resultarr[i] = 'Отдел продаж';			
+				//resultarr[i] = 'Отдел продаж';
+				salesarr[i] = '1';
 			}
 	    };
 	    /*if (RegExp('1000*').test(resultarr[i]) == true){
@@ -287,7 +295,8 @@ try {
             };*/
 	     for (j in service){
 			if (resultarr[i].indexOf(service[j]) != -1){
-				resultarr[i] = 'Сервис';			
+				//resultarr[i] = 'Сервис';
+				servicearr[i] = '1';
 			}
 	     };
 	    
@@ -296,15 +305,21 @@ try {
 	
 	document.getElementById('resultarr1').innerHTML = resultarr; 
 	 
-	for (i in resultarr){	
-	    if (resultarr[i].indexOf('Отдел продаж') == -1){
-		   if (resultarr[i].indexOf('Сервис') == -1){
-			    if (resultarr[i].indexOf('Прочее') == -1){
-	  				resultarr[i] = 'Несостоявшийся';
-	  		    }	
-	  	   }
-	    }				
-       };
+	for (i in resultarr){
+
+           if (salesarr[i] == '1' && servicearr[i] == '1'){
+               resultarr[i] = 'Отдел продаж';
+           } else if (salesarr[i] == '1' && servicearr[i] != '1'){
+               resultarr[i] = 'Отдел продаж';
+           } if (salesarr[i] != '1' && servicearr[i] == '1'){
+               resultarr[i] = 'Сервис';
+           } else if (salesarr[i] != '1' && servicearr[i] != '1'){
+              if (otherarr[i] == '1'){
+                resultarr[i] = 'Прочее';     
+              } else resultarr[i] = 'несостоявшийся';
+           }
+
+        };
 	 
         console.log('Результирующий массив:',resultarr);
 	 
