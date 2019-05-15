@@ -27,8 +27,7 @@
   <h3>Результирующий массив:</h3>
   <div id="resultarr2"></div>
 
-  <script>
-  try{	  
+  <script>  
   // Создаем распознаватель
   var recognizer = new webkitSpeechRecognition();
   
@@ -364,11 +363,7 @@ function cp(){
   } 
   //очистим выделение текста, чтобы пользователь "не парился"
   window.getSelection().removeAllRanges();
-};
-  } catch (err){
-   console.log('ошибок нет');
-  }
-	  
+};	  
   </script>
 
 </body>
