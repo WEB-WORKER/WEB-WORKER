@@ -251,25 +251,19 @@ var speechFunction = function(){
    recognizer.onnomatch = speechFunction;
    recognizer.onsoundend = speechFunction;
     
-try {
+
    // Используем колбек для обработки результатов
     recognizer.onresult = function (event) {
     result = event.results[event.resultIndex];
     
-     if (result.isFinal) {            
-        fstarr.push(result[0].transcript);        
-        //str = fstarr.join();
-        console.log('fstarr:', fstarr);       
-        
-     } else {
-           console.log('Промежуточный результат: ' + result[0].transcript);      
-          //   console.log('Система записывает промежуточные результаты');
+     if (result.isFinal) {
+        fstarr.push(result[0].transcript);               
+        console.log('fstarr:', fstarr);
+     } else {	     
+           console.log('Промежуточный результат: ' + result[0].transcript);
      }
       
-   } 
-} catch (err){
-      speechFunction;	
-};	  
+   }; 
        
  function send(){
 	 
@@ -371,12 +365,6 @@ function cp(){
   window.getSelection().removeAllRanges();
 };
 	  
-  
- // setInterval(function() { speech() }, 10000);
-    
- // recognizer.onerror = function() { speech() };
-  
-  
   </script>
 
 </body>
