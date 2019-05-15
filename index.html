@@ -14,8 +14,9 @@
   <ul id="list">    
   </ul>
   <hr>
-  <button onclick="speech()">Перезапуск</button>  
-  <button onclick="stope()">Остановить</button>
+  <button onclick="speech()">Пуск</button> 
+  <button onclick="respeech()">Перезапуск</button>  
+  <button onclick="stop()">Остановить</button>
   <button onclick="send()">Отправить</button>  
   <button onclick="cp()">Скопировать в буфер</button>
   <hr>
@@ -359,18 +360,18 @@ try {
  };   
     
 	  
-	  
-	  
   function speech(){
-    // Начинаем слушать микрофон и распознавать голос
-    recognizer.start();
-      stope();  
-      setTimeout(function() { recognizer.start() }, 70);
-  };
+  // Начинаем слушать микрофон и распознавать голос
+  	recognizer.start();
+  };	  
+	  
+  function respeech(){
+      stop();  
+      setTimeout(function() { recognizer.start() }, 300);
+  };  
   
-  
-  function stope(){
-    recognizer.stop();
+  function stop(){
+      recognizer.stop();
   };
 	  
 	  
