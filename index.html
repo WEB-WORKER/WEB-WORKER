@@ -17,7 +17,7 @@
   <button onclick="speech()">Перезапуск</button>  
   <button onclick="stope()">Остановить</button>
   <button onclick="send()">Отправить</button>  
-  <button onclick="cp()">Кликнуть 2 раза чтобы скопировать</button>
+  <button onclick="cp()">Скопировать в буфер</button>
   <hr>
   <h3>Массив из строки:</h3>
   <div id="sndarr"></div>
@@ -364,8 +364,8 @@ try {
   function speech(){
     // Начинаем слушать микрофон и распознавать голос
     recognizer.start();
-    // recognizer.stop();  
-    //setTimeout(function() { recognizer.start() }, 10);
+      stope();  
+      setTimeout(function() { recognizer.start() }, 50);
   };
   
   
