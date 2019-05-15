@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Распознавание речи</title>
+  <style>
+	  #list{
+		list-style-type: none;
+	  }
+  </style>
+</head>
+<body>
+  <h2>Распознанные данные:</h2>
+  <ul id="list">    
+  </ul>
+  <hr>
+  <button onclick="speech()">Пуск</button>  
+  <button onclick="send()">Вывести результат</button>  
+  <button onclick="cp()">Скопировать в буфер</button>
+  <hr>
+  <h3>Массив из строки:</h3>
+  <div id="sndarr"></div>
+  <hr>
+  <h3>Результирующий массив без обработки:</h3>
+  <div id="resultarr1"></div>
+  <hr>	
+  <h3>Результирующий массив:</h3>
+  <div id="resultarr2"></div>
 
+  <script>
+  // Создаем распознаватель
+  var recognizer = new webkitSpeechRecognition();
+  
+  //тип распознавания длительный
+  recognizer.continuous = true;
+  // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+  recognizer.interimResults = true;
+  // Какой язык будем распознавать?
+  recognizer.lang = 'ru-Ru';
+  
+  var fstarr    = [],
+      sndarr    = [],
+      resultarr = [],
+      res       = [],
+      salesarr  = [],
+      servicearr  = [],
+      otherarr  = [],
+      str,
+      i = 0,
+      result;
+    
+ var sales = ['приобрести',
+         'цвет автомобиля',
+         'цвета',
+         'конфигуратор',
+         'комплектац',                        
+         'связаться с отделом продаж',
+         'кредитование',         
+         'покупку',         
+         'сколько стоит автомобиль',
+         'стоимости автомобиля',
+	 'приобретать автомобиль',
+         'тест-драйв',
+         'лучшая цена',
+         'добрый день отдел продаж',
+         'сборка',
+         'выставочные образцы',
+         'кредитная ставка',   
+         'посмотреть можно',    
+	 'какая вас заинтересовала',
+	 'знакомы с машиной',
+	 'знакомы с автомобил',
+	 'модельному ряду',
+         'условия приобритения',
+         'автомобиль со скидкой',
+	 'автомобили со скидкой',
+         'рассматриваем эту модель',
+	 'минимальной цены',
+	 'кредит',
+         'миллион',
+         'на эту модель',
+	 'стоимость nissan',
+         'продажа ниссан',
+         'купить у вас nissan',
+	 'лизинг',
+	 'тест-драйв',
+	 'тестдрайв',
+	 'тест драйв',
+	 'стадион продаж',
+	 'по наличию',
+	 'машина стоит',
+	 'покупки автомобиля нового',	             
+	 'какие машины',
+         'на механике',
+         'какая модель',
+         'двухлитровый автомат',	  
+         'подогрев',
+         'условия покупки автомобиля',
+         'новые автомобил',
+	 'первый взнос',
+         'кредит автомобил',       
+	 'вопросам приобретения автомобил',
+	 'приобретению автомобиля',
+	 'если брать на автомате',
+         'двухлитровый стоит',
+         'покупка автомобиля',
+	 'наличие автомобиля',
+	 'автомобили прошлого года',
+         'выгод',
+         'покупку рассматриваете',	 
+	  ];
+	  
+var service = ['диагностик',
+           'техническое обслуживание',
+           'масло',
+           'замена',
+           'менять',
+           'отзывная',
+           'техобслуживание',
+           'запчасти',
+           'запчастями',
+           'проблем',
+           'ошибка',         
+           'обслуживание',
+           'сделать т о',
+           'нулевое то',
+           'сервисного',
+           'сервисного центра',
+           'частей',
+           'покрасить бампер',
+           'шрус',
+           'вышел из строя',
+           'техобслуживания',
+           'обслуживается',
+           'обслуживание',
+           'сход',
+           'завести',
+           'меняли',
+           'коленвал',
+           'масл',
+           'замена',
+           'записаться',
+           'сервису',
+           'детали',
+           'проверка',
+           'консультация',
+           'шиномонтаж',
+           'перечень',          
+           'диагностику',
+	   'дефлекторы',
+	   'вмятина',
+	   'сервисе',
+	   'тормоза',
+	   'шланги',
+	   'хотел бы на то',
+	   'диагности',
+	   'покраска бампера',
+	   'обслужива',
+           'масля',
+           'топлив',
+           'свечи зажигания',
+	   'госномеру',
+	   'защита двигателя',
+	   'нужен отдел запчастей',
+	   'залива',
+	   'наконечник',
+           'перезаправить',
+	   'сделать машину',
+           'работ',
+	   'глушите',
+	   'болт концевика',
+	   'перепрограммировать',
+           'не работает',
+           'жидкост',
+           'прокладка',
+           'откручивается',
+           'заблокировалась',
+	   'иммобилайзер',
+           'блокировки',
+           'пин-код',
+	   'т о на',
+           'защита картера',
+           'установлено',
+	   'механический',
+           'кузовной',
+           'поломка',
+	   'под магнитолу',
+           'код',
+	   'фильтр',
+           'покраска',
+           'автомобиль обслуживался',
+           'фильтр',
+           'свечи',
+ 	   'диагностик',
+	   'мастеру',
+           'с мастером соединю',
+           'масло акпп',
+           'с материалом',
+           'повреждения автомобиля',
+           'в аварию попадал',
+           'т о',
+           'лампочк',
+           'оригинал',
+           'втулк',
+	   'рулевого наконечника',
+	   'завелась',
+           'эвакуатор',
+           'сел аккумулятор',
+           'не заводится',
+           'мойк',
+	   'материалы',
+           'колодк',
+           'шашлык',
+           'гарантийный осмотр',
+	   'автомобили которые в наличии',
+           'автомобили в наличии',
+           'покупке автомобил',
+           ',покупку автомобил',
+           'разбора двигателя',
+           'разбор двигателя'
+	   ];
+	  
+var other = [
+      'юрис',
+      'юридичес',
+      'поликлиника',
+      'страхование',
+      'страховки',
+      'бухгалтер',
+      'пока занят',
+      'перерыв',
+      'сотрудника нету',
+      'куда я попал',
+      'отменить',
+      'перенести',
+      'без документов',
+      'готовности машины',
+      'оставлял машину',
+      'сдавал',
+      'ничего не заказывал',
+      'я уже сам позвонил'
+       ];
+	  
+var speechFunction = function(){
+			speech();
+};
+	  
+   recognizer.onspeechend = speechFunction;
+   recognizer.onend = speechFunction;
+   recognizer.onerror = speechFunction;
+   recognizer.onnomatch = speechFunction;
+   recognizer.onsoundend = speechFunction;
+    
+try {
+   // Используем колбек для обработки результатов
+    recognizer.onresult = function (event) {
+    result = event.results[event.resultIndex];
+    
+     if (result.isFinal) {            
+        fstarr.push(result[0].transcript);        
+        //str = fstarr.join();
+        console.log('fstarr:', fstarr);       
+        
+     } else {
+           console.log('Промежуточный результат: ' + result[0].transcript);      
+          //   console.log('Система записывает промежуточные результаты');
+     }
+      
+   } 
+} catch (err){
+      speechFunction;	
+};	  
+       
+ function send(){
+	 
+	console.log('Было:',fstarr);
+	 
+	str = fstarr.join().toLowerCase();
+	console.log('Строка:',str);
+	 
+	sndarr = str.split('пирог');
+ 	console.log('Массив из строки:',sndarr);
+	 
+	for (i in sndarr){	
+	        if ((sndarr[i]).indexOf('31') != -1 && sndarr[i].length < 18){		    
+	    }
+	    else {
+	    	res = resultarr.push(sndarr[i]);
+	    }
+	};	 
+	
+	salesarr = resultarr.slice(); 
+        servicearr = resultarr.slice();
+        otherarr = resultarr.slice();
+	 
+	for (i in resultarr){
+	     for (j in other){
+			if (resultarr[i].indexOf(other[j]) != -1){				
+				otherarr[i] = '1';
+			}
+	     };
+	     for (j in sales){
+			if (resultarr[i].indexOf(sales[j]) != -1){				
+				salesarr[i] = '1';
+			}
+	    };
+	     for (j in service){
+			if (resultarr[i].indexOf(service[j]) != -1){				
+				servicearr[i] = '1';
+			}
+	     };
+	    
+	 /////resultarr end
+	};
+	
+	document.getElementById('resultarr1').innerHTML = resultarr; 
+	 
+	for (i in resultarr){
+           if (salesarr[i] == '1' && servicearr[i] == '1'){
+               resultarr[i] = 'Отдел продаж';
+           } else if (salesarr[i] == '1' && servicearr[i] != '1'){
+               resultarr[i] = 'Отдел продаж';
+           } if (salesarr[i] != '1' && servicearr[i] == '1'){
+               resultarr[i] = 'Сервис';
+           } else if (salesarr[i] != '1' && servicearr[i] != '1'){
+              if (otherarr[i] == '1'){
+                resultarr[i] = 'Прочее';     
+              } else resultarr[i] = 'несостоявшийся';
+           }
+        };
+	 
+        console.log('Результирующий массив:',resultarr);
+	 
+	for (i in resultarr){
+		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
+		var elem = document.createElement("li");
+          	    elem.innerHTML = (resultarr[i]);
+		    document.getElementById('list').appendChild(elem);
+	}
+	 
+	document.getElementById('sndarr').innerHTML = sndarr; 	 
+	document.getElementById('resultarr2').innerHTML = resultarr; 
+ };   
+    
+	  
+  function speech(){
+  // Начинаем слушать микрофон и распознавать голос
+     try { 
+  	recognizer.start();
+     } catch (err){
+        recognizer.start();
+     }
+  };	  
+	  
+//Копирование в буфер обмена:	  
+function cp(){
+  //нашли наш контейнер
+  var ta = document.getElementById('list'); 
+  //производим его выделение
+  var range = document.createRange();
+  range.selectNode(ta); 
+  window.getSelection().addRange(range); 
+ 
+  //пытаемся скопировать текст в буфер обмена
+  try { 
+    document.execCommand('copy'); 
+  } catch(err) { 
+    console.log('Can`t copy, boss'); 
+  } 
+  //очистим выделение текста, чтобы пользователь "не парился"
+  window.getSelection().removeAllRanges();
+};
+	  
+  
+ // setInterval(function() { speech() }, 10000);
+    
+ // recognizer.onerror = function() { speech() };
+  
+  
+  </script>
+
+</body>
+</html>
