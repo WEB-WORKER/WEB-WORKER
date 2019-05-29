@@ -22,10 +22,10 @@
   <div id="sndarr"></div>
   <hr>
   <h3>Результирующий массив без обработки:</h3>
-  <div id="resultarr1"></div>
-  <hr>	
+  <ul id="resultarr1"></ul>
+  <!--<hr>	
   <h3>Результирующий массив:</h3>
-  <div id="resultarr2"></div>
+  <div id="resultarr2"></div>-->
 
   <script>  
   // Создаем распознаватель
@@ -333,7 +333,13 @@ var speechFunction = function(){
 	 /////resultarr end
 	};
 	
-	document.getElementById('resultarr1').innerHTML = resultarr; 
+	// document.getElementById('resultarr1').innerHTML = resultarr;
+	 
+	for (i in resultarr){	
+		var elem = document.createElement("li");
+          	    elem.innerHTML = (resultarr[i]);
+		    document.getElementById('resultarr1').appendChild(elem);
+	}
 	 
 	for (i in resultarr){
            if (salesarr[i] == '1' && servicearr[i] == '1'){
@@ -349,7 +355,8 @@ var speechFunction = function(){
            }
         };
 	 
-        console.log('Результирующий массив:',resultarr);
+        console.log('Результирующий массив:',resultarr);	 
+	
 	 
 	for (i in resultarr){
 		console.log(parseInt(i)+1 + '. ' + resultarr[i]);
@@ -359,7 +366,13 @@ var speechFunction = function(){
 	}
 	 
 	document.getElementById('sndarr').innerHTML = sndarr; 	 
-	document.getElementById('resultarr2').innerHTML = resultarr; 
+	// document.getElementById('resultarr2').innerHTML = resultarr;
+	 
+	for (i in resultarr){	
+		var elem = document.createElement("li");
+          	    elem.innerHTML = (resultarr[i]);
+		    document.getElementById('resultarr2').appendChild(elem);
+	}
  };   
     
 	  
